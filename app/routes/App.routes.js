@@ -1,18 +1,21 @@
-const express = require('express');
+
+import express from 'express';
+import AppController from '../controllers/App.controller.js';
+import UserController from '../controllers/User.controller.js';
+
+
 const router = express.Router();
-const AppController = require('../controllers/App.controller');
-const UserController = require('../controllers/User.controller');
+const appController = new AppController();
 
 // Define main application routes
-router.get('/', AppController.home);
-router.get('/about', AppController.about);
-router.get('/contact', AppController.contact);
+router.get('/',appController.index);
+router.get('/stock-news', appController.getStockNews);
 
-// User routes
-router.get('/users', UserController.listUsers);
-router.post('/users', UserController.createUser);
-router.get('/users/:id', UserController.getUser);
-router.put('/users/:id', UserController.updateUser);
-router.delete('/users/:id', UserController.deleteUser);
+// // User routes
+// router.get('/users', UserController.listUsers);
+// router.post('/users', UserController.createUser);
+// router.get('/users/:id', UserController.getUser);
+// router.put('/users/:id', UserController.updateUser);
+// router.delete('/users/:id', UserController.deleteUser);
 
-module.exports = router;
+export default router;
