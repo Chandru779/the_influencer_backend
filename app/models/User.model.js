@@ -1,4 +1,4 @@
-module.exports = {
+export const userModel =  {
     name: String,
     email: String,
     password: String,
@@ -10,4 +10,4 @@ module.exports = {
         type: Date,
         default: Date.now
     }
-};
+}

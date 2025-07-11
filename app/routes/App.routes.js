@@ -1,15 +1,17 @@
 
 import express from 'express';
 import AppController from '../controllers/App.controller.js';
-import UserController from '../controllers/User.controller.js';
+import NewsController from '../controllers/News.controller.js';
 
 
 const router = express.Router();
 const appController = new AppController();
+const newsController = new NewsController()
 
 // Define main application routes
 router.get('/',appController.index);
-router.get('/stock-news', appController.getStockNews);
+router.get('/scrap-news', newsController.createNews);
+router.get('/news',newsController.getNews)
 
 // // User routes
 // router.get('/users', UserController.listUsers);
